@@ -1,5 +1,27 @@
-$color: steelblue;
+$primary: #102e57;
+$body-bg: #3f5778;
 
-.my-flix {
-    color: $color;
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+    background-color: $body-bg;
+    color: white;
+}
+
+.movie-card {
+    background-color: $primary;
+    color: white;
+    border-radius: 10px;
+}
+
+.movie-view {
+    background-color: $primary;
+    color: white;
+    border-radius: 10px;
+}
+
+.login, .signup {
+    background-color: $primary;
+    color: white;
+    border-radius: 25px;
 }
