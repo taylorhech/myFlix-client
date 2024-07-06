@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movie }) => {
     console.log("Movie data:", movie);
     
     return (
@@ -23,7 +24,11 @@ export const MovieView = ({ movie, onBackClick }) => {
                     <span>{movie.Description}</span>
                 </div>
                 </Card.Text>
-                <Button onClick={onBackClick} variant="secondary">Back</Button>
+                <div>
+                    <Link to={`/`}>
+                    <Button variant="secondary">Back</Button>
+                    </Link>
+                </div>
             </Card.Body>
         </Card>
     );
