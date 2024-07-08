@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import { Card, Button } from "react-bootstrap";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+    const { movieId } = useParams();
+
+    const movie = movies.find((m) => m.id === movieId);
+    
     console.log("Movie data:", movie);
     
     return (
@@ -23,7 +29,11 @@ export const MovieView = ({ movie, onBackClick }) => {
                     <span>{movie.Description}</span>
                 </div>
                 </Card.Text>
-                <Button onClick={onBackClick} variant="secondary">Back</Button>
+                <div>
+                    <Link to={`/`}>
+                    <Button variant="secondary">Back</Button>
+                    </Link>
+                </div>
             </Card.Body>
         </Card>
     );
@@ -40,6 +50,5 @@ MovieView.propTypes = {
             Name: PropTypes.string.isRequired
         }).isRequired,
         ImagePath: PropTypes.string.isRequired
-       }).isRequired,
-       onBackClick: PropTypes.func.isRequired,
+       }).isRequired
 };
